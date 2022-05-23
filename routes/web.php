@@ -20,56 +20,30 @@ use App\Http\Controllers\Auth\LoginController;
 |
 */
 
-
-
-/*
-Auth::routes();
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-*/
 Auth::routes();
 
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('usuarios.index');
-
-
-
-
-
-//ver Datos
-//Route::get('/view', [App\Http\Controllers\AnimalsController::class, 'viewData']);
-//Route::get('/views', [App\Http\Controllers\HomeController::class, 'viewData']);
-
-//Guardar datos
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('usuarios.index');
+//Guardar datos del animal
 Route::post('/', [App\Http\Controllers\AnimalsController::class, 'guardar'])->name('save');
 
 
-
+//Cancelar Servicio Cliente
 Route::delete('eliminar/{id}',[App\Http\Controllers\AnimalsController::class, 'delete'] )->name('eliminar');
 
+Route::delete('cancelar/{id}',[App\Http\Controllers\AnimalsController::class, 'borrar'] )->name('cancelar');
 
 
+//Dar por terminado el servicio
 Route::delete('finalizado/{id}',[App\Http\Controllers\HomeController::class, 'delete'] )->name('finalizado');
 
+
+//Editar Registro
 Route::put('/edit/{id}', [App\Http\Controllers\AnimalsController::class, 'editar'])->name('edit');
 
-
-
+//Confirma Servicio
 Route::post('/acept/{id}', [App\Http\Controllers\AnimalsController::class, 'aceptar'])->name('acept');
 
-
-
-
+//Enviar informacion de confirmacion
 Route::post('/send/{id}', [App\Http\Controllers\AnimalsController::class, 'enviar'])->name('send');
-
-
-
-/*
-
-Route::group(['middleware' => ['auth']], function(){
-    Route::resource('roles',RolController::class);
-    Route::resource('usuarios',UsuarioController::class);
-
-});
-
-
-*/

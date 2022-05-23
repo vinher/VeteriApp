@@ -16,6 +16,7 @@ class SeederTablaPermisos extends Seeder
     public function run()
     {
         //
+    /*
     $permisos = [
         'ver-rol',
         'crear-rol',
@@ -26,6 +27,6 @@ class SeederTablaPermisos extends Seeder
         // code...
         Permission::create(['name' => $permiso]);
     }
-
+    */
     }
 }

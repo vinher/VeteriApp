@@ -46,6 +46,7 @@ class HomeController extends Controller
         }
       }
 
+        //Funcion Para Dar por Terminado Un Servicio
         public function delete($id){
         $eliminar = App\Models\Confirm::findorFail($id);
         $eliminar->delete();

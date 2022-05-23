@@ -14,7 +14,7 @@ class AnimalsController extends Controller
         return view('usuarios.index');
     }
 
-
+    //Dar de lata animal
     public function guardar(Request $request){
       
         
@@ -36,13 +36,24 @@ class AnimalsController extends Controller
 
     }
 
+    //Funcion para cancelar solicitud del cliente
+
     public function delete($id){
+        $eliminar = App\Models\Animal::findorFail($id);
+        $eliminar->delete();
+
+        return back()->with('eliminar','ok');
+
+    }
+
+        public function borrar($id){
         $eliminar = App\Models\Send::findorFail($id);
         $eliminar->delete();
 
         return back()->with('eliminar','ok');
 
     }
+    //Funcion editar admin
     public function editar(Request $request, $id){
         $animals = App\Models\Send::find($id);
 
@@ -58,6 +69,8 @@ class AnimalsController extends Controller
         return back()->with('edit','ok');
     }
 
+
+    //Aceptar servicio admin
     public function aceptar(Request $request,$id ){
       
        
@@ -81,6 +94,8 @@ class AnimalsController extends Controller
     }
 
 
+
+    //Enviar datos o solicitud del cliente
     public function enviar(Request $request,$id ){
       
        

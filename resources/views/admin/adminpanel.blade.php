@@ -184,7 +184,7 @@
 
 
 <!-- /.modal -->
-          <form action="{{route ('eliminar',$item)}}" method="POST" class="d-inline formulario-eliminar">
+          <form action="{{route ('cancelar',$item)}}" method="POST" class="d-inline formulario-eliminar">
             @method('DELETE')
             @csrf
             <button class="btn btn-danger btn-sm ">Rechazar</button>
